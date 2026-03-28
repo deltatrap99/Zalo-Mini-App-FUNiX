@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap');
+
+/* === Galaxy Education Design Tokens — schoolsummit palette === */
+:root {
+  /* Primary Navy Blue (from schoolsummit.daisugiaoduc.vn) */
+  --galaxy-blue: #0a2562;
+  --action-blue: #1e56d0;
+  --accent-cyan: #5dade2;
+  --action-blue-dark: #0c2d78;
+  --navy-deep: #060e24;
+  --navy-mid: #0c1a3d;
+  --navy-surface: #0f2240;
+  --navy-card: #122450;
+  --navy-light: #1a3570;
+  --navy-highlight: #2a4a8a;
+
+  /* Accent Orange (Galaxy Education) */
+  --galaxy-orange: #f37021;
+  --warm-orange: #ff8c42;
+  --orange-glow: rgba(243, 112, 33, 0.25);
+
+  /* Success / Free */
+  --success-green: #00B894;
+  --green-glow: rgba(0, 184, 148, 0.15);
+
+  /* Course Category */
+  --ai-purple: #6C5CE7;
+  --data-blue: #0984E3;
+  --vibe-green: #00B894;
+  --auto-orange: #E17055;
+  --creative-pink: #FD79A8;
+  --biz-cyan: #00CEC9;
+  --edu-yellow: #FDCB6E;
+
+  /* Background — Deep Navy Palette */
+  --dark-base: #050c1f;
+  --dark-surface: #060e24;
+  --dark-card: #0c1a3d;
+  --deep-navy: #0a2562;
+  --card-fill: rgba(14, 30, 70, 0.6);
+  --card-border: rgba(30, 70, 150, 0.2);
+  --card-border-hover: rgba(30, 86, 208, 0.35);
+
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-muted: rgba(255, 255, 255, 0.55);
+  --text-hint: rgba(255, 255, 255, 0.4);
+  --text-faint: rgba(255, 255, 255, 0.3);
+  --text-ultra-faint: rgba(255, 255, 255, 0.2);
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-base: 16px;
+  --space-lg: 20px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+  --space-3xl: 40px;
+  --space-4xl: 48px;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-base: 12px;
+  --radius-lg: 14px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-full: 50%;
+
+  /* Font */
+  --font-family: 'Be Vietnam Pro', 'Segoe UI', sans-serif;
+}
+
+/* === Global Reset === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--dark-base);
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* === Animations === */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === Form Styles === */
+input::placeholder,
+select {
+  color: var(--text-faint);
+}
+
+input:focus,
+select:focus {
+  border-color: var(--action-blue) !important;
+  box-shadow: 0 0 0 3px rgba(30, 86, 208, 0.2);
+  outline: none;
+}
+
+/* === Scrollbar === */
+::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
