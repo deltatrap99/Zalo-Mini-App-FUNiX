@@ -1,34 +1,34 @@
 import StatusBar from "../components/StatusBar";
 import Btn from "../components/Btn";
 
-export default function SuccessScreen({ form, course, onAmbassador, onReset }) {
+export default function SuccessScreen({ form, course, onAmbassador, onDashboard, onReset }) {
   return (
     <div style={{
       minHeight: "100vh", padding: "0 20px 40px",
-      background: "linear-gradient(180deg, #060e24 0%, #0a2562 50%, #060e24 100%)",
+      background: "linear-gradient(180deg, #ffffff 0%, #f0f2f8 50%, #f8f9fa 100%)",
     }}>
       <StatusBar />
       <div style={{ paddingTop: 48, textAlign: "center" }}>
         <div style={{
           width: 88, height: 88, borderRadius: "50%", margin: "0 auto 24px",
-          background: "linear-gradient(135deg, #00B894, #55efc4)",
+          background: "linear-gradient(135deg, #10b981, #34d399)",
           display: "flex", alignItems: "center", justifyContent: "center",
           fontSize: 40,
-          boxShadow: "0 8px 32px rgba(0, 184, 148, 0.3)",
+          boxShadow: "0 8px 32px rgba(16, 185, 129, 0.2)",
         }}>✅</div>
-        <div style={{ fontSize: 24, fontWeight: 800, color: "#fff", marginBottom: 8 }}>
+        <div style={{ fontSize: 24, fontWeight: 800, color: "#1a2a5e", marginBottom: 8 }}>
           Đăng ký thành công!
         </div>
-        <div style={{ fontSize: 14, color: "rgba(255,255,255,0.6)", lineHeight: 1.6, marginBottom: 32 }}>
-          Xin chào <strong style={{ color: "#fff" }}>{form.name || "bạn"}</strong>, mình đã ghi nhận đăng ký của bạn cho lớp <strong style={{ color: course.color }}>{course.title}</strong>
+        <div style={{ fontSize: 14, color: "#757680", lineHeight: 1.6, marginBottom: 32 }}>
+          Xin chào <strong style={{ color: "#1a2a5e" }}>{form.name || "bạn"}</strong>, mình đã ghi nhận đăng ký của bạn cho lớp <strong style={{ color: course.color }}>{course.title}</strong>
         </div>
 
         <div style={{
-          padding: 24, borderRadius: 20, textAlign: "left",
-          background: "rgba(14, 30, 70, 0.5)",
-          border: "1px solid rgba(30, 86, 208, 0.15)", marginBottom: 24,
+          padding: 24, borderRadius: 24, textAlign: "left",
+          background: "#ffffff",
+          boxShadow: "0 4px 20px rgba(0,0,0,0.06)", marginBottom: 24,
         }}>
-          <div style={{ fontSize: 14, fontWeight: 700, color: "#fff", marginBottom: 16 }}>
+          <div style={{ fontSize: 14, fontWeight: 700, color: "#1a2a5e", marginBottom: 16 }}>
             📋 Bước tiếp theo
           </div>
           {[
@@ -39,41 +39,45 @@ export default function SuccessScreen({ form, course, onAmbassador, onReset }) {
           ].map((item, i) => (
             <div key={i} style={{ display: "flex", gap: 12, marginBottom: 12 }}>
               <span style={{ fontSize: 16 }}>{item.icon}</span>
-              <span style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", lineHeight: 1.5 }}>{item.text}</span>
+              <span style={{ fontSize: 13, color: "#45464f", lineHeight: 1.5 }}>{item.text}</span>
             </div>
           ))}
         </div>
 
         <div style={{
-          padding: 24, borderRadius: 20, textAlign: "left",
-          background: "linear-gradient(135deg, rgba(243,112,33,0.08), rgba(255,140,66,0.04))",
-          border: "1px solid rgba(243,112,33,0.2)", marginBottom: 24,
+          padding: 24, borderRadius: 24, textAlign: "left",
+          background: "#fff7ed",
+          boxShadow: "0 2px 8px rgba(243,112,33,0.08)", marginBottom: 24,
         }}>
           <div style={{ fontSize: 16, fontWeight: 700, color: "#f37021", marginBottom: 8 }}>
             🌟 Muốn kiếm thêm thu nhập?
           </div>
-          <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", lineHeight: 1.6, marginBottom: 16 }}>
-            Trở thành Đại sứ Giáo dục — giới thiệu bạn bè tham gia và nhận hoa hồng 20% + tích lũy Credit Sao
+          <div style={{ fontSize: 13, color: "#45464f", lineHeight: 1.6, marginBottom: 16 }}>
+            Trở thành Đại sứ Giáo dục — giới thiệu bạn bè tham gia và nhận hoa hồng từ 27% trở lên + tích lũy Credit Sao
           </div>
           <Btn onClick={onAmbassador} variant="accent">
             Tìm hiểu chương trình Đại sứ →
           </Btn>
+          <div style={{ height: 10 }} />
+          <Btn onClick={onDashboard} variant="primary">
+            📋 Trang Quản lý thông tin dành cho Đại sứ
+          </Btn>
         </div>
 
         <div style={{
-          padding: 20, borderRadius: 16,
-          background: "rgba(14, 30, 70, 0.5)", marginBottom: 24,
+          padding: 20, borderRadius: 20,
+          background: "#ffffff", boxShadow: "0 2px 8px rgba(0,0,0,0.04)", marginBottom: 24,
         }}>
-          <div style={{ fontSize: 14, fontWeight: 600, color: "#fff", marginBottom: 12 }}>
+          <div style={{ fontSize: 14, fontWeight: 600, color: "#1a2a5e", marginBottom: 12 }}>
             Chia sẻ với bạn bè
           </div>
           <div style={{ display: "flex", gap: 12, justifyContent: "center" }}>
             {["Zalo", "Facebook", "Copy link"].map((ch, i) => (
               <div key={i} style={{
-                padding: "10px 20px", borderRadius: 10,
-                background: "rgba(30, 86, 208, 0.12)",
-                border: "1px solid rgba(30, 86, 208, 0.2)",
-                fontSize: 13, color: "rgba(255,255,255,0.6)", cursor: "pointer",
+                padding: "10px 20px", borderRadius: 50,
+                background: "#f3f4f5",
+                fontSize: 13, color: "#45464f", cursor: "pointer",
+                fontWeight: 500,
               }}>{ch}</div>
             ))}
           </div>

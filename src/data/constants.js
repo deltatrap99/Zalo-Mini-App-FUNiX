@@ -1,5 +1,6 @@
 export const SCREENS = {
   SPLASH: "splash",
+  ZALO_AUTH: "zalo_auth",
   SEGMENT: "segment",
   QUIZ_INTRO: "quiz_intro",
   QUIZ: "quiz",
@@ -9,6 +10,7 @@ export const SCREENS = {
   REGISTER: "register",
   SUCCESS: "success",
   AMBASSADOR: "ambassador",
+  DASHBOARD: "dashboard",
 };
 
 export const SEGMENTS = {

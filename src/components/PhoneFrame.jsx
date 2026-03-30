@@ -5,9 +5,9 @@ export default function PhoneFrame({ children }) {
       maxWidth: 393,
       margin: "0 auto",
       minHeight: "100vh",
-      background: "#0a0a0f",
+      background: "#f8f9fa",
       position: "relative",
-      fontFamily: "'Be Vietnam Pro', 'Segoe UI', sans-serif",
+      fontFamily: "'Inter', 'Segoe UI', sans-serif",
       overflow: "hidden",
     }}>
       {children}

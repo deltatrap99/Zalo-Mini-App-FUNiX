@@ -4,9 +4,14 @@ import ZaloHeader from "../components/ZaloHeader";
 import Btn from "../components/Btn";
 import { SEGMENTS } from "../data/constants";
 
-export default function RegisterScreen({ course, segment, onBack, onSubmit }) {
+export default function RegisterScreen({ course, segment, onBack, onSubmit, zaloUser }) {
   const [form, setForm] = useState({
-    name: "", phone: "", email: "", job: "", goal: "", referral: "",
+    name: zaloUser?.name && zaloUser.name !== "Bạn" ? zaloUser.name : "",
+    phone: zaloUser?.phone || "",
+    email: "",
+    job: "",
+    goal: "",
+    referral: "",
   });
   const isStudent = segment === SEGMENTS.STUDENT;
 
@@ -29,29 +34,37 @@ export default function RegisterScreen({ course, segment, onBack, onSubmit }) {
 
   const canSubmit = form.name && form.phone;
 
+  const inputStyle = {
+    width: "100%", padding: "14px 16px", borderRadius: 16,
+    background: "#f3f4f5", border: "2px solid transparent",
+    color: "#191c1d", fontSize: 15, outline: "none",
+    boxSizing: "border-box", transition: "all 0.2s",
+    fontFamily: "'Inter', sans-serif",
+  };
+
   return (
     <div style={{
       minHeight: "100vh", padding: "0 0 40px",
-      background: "linear-gradient(180deg, #060e24 0%, #0a2562 50%, #060e24 100%)",
+      background: "linear-gradient(180deg, #ffffff 0%, #f0f2f8 50%, #f8f9fa 100%)",
     }}>
       <StatusBar />
       <ZaloHeader title="Đăng ký lớp học" onBack={onBack} />
 
       <div style={{ padding: "24px 20px" }}>
         <div style={{
-          display: "flex", gap: 14, padding: 16, borderRadius: 14,
-          background: "rgba(14, 30, 70, 0.5)", marginBottom: 28,
-          border: "1px solid rgba(30, 86, 208, 0.15)",
+          display: "flex", gap: 14, padding: 16, borderRadius: 20,
+          background: "#ffffff", marginBottom: 28,
+          boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
         }}>
           <div style={{
-            width: 44, height: 44, borderRadius: 12,
-            background: course.color + "22",
+            width: 44, height: 44, borderRadius: 14,
+            background: course.color + "12",
             display: "flex", alignItems: "center", justifyContent: "center",
             fontSize: 22, flexShrink: 0,
           }}>{course.icon}</div>
           <div>
-            <div style={{ fontSize: 14, fontWeight: 700, color: "#fff" }}>{course.title}</div>
-            <div style={{ fontSize: 12, color: "#00B894", fontWeight: 600 }}>Miễn phí · {course.duration}</div>
+            <div style={{ fontSize: 14, fontWeight: 700, color: "#1a2a5e" }}>{course.title}</div>
+            <div style={{ fontSize: 12, color: "#10b981", fontWeight: 600 }}>Miễn phí · {course.duration}</div>
           </div>
         </div>
 
@@ -59,25 +72,31 @@ export default function RegisterScreen({ course, segment, onBack, onSubmit }) {
           {fields.map((field) => (
             <div key={field.key}>
               <label style={{
-                display: "block", fontSize: 13, fontWeight: 600,
-                color: "rgba(255,255,255,0.6)", marginBottom: 8,
+                display: "flex", alignItems: "center", gap: 8,
+                fontSize: 13, fontWeight: 600,
+                color: "#1a2a5e", marginBottom: 8,
               }}>
-                {field.label} {field.required && <span style={{ color: "#f37021" }}>*</span>}
+                <span>{field.label} {field.required && <span style={{ color: "#f37021" }}>*</span>}</span>
+                {zaloUser?.name && zaloUser.name !== "Bạn" && (field.key === "name" || field.key === "phone") && form[field.key] && (
+                  <span style={{
+                    fontSize: 10, fontWeight: 600, color: "#0068ff",
+                    background: "#e8f0fe", padding: "2px 8px", borderRadius: 50,
+                  }}>Từ Zalo</span>
+                )}
               </label>
               {field.type === "select" ? (
                 <select
                   value={form[field.key]}
                   onChange={e => setForm({ ...form, [field.key]: e.target.value })}
                   style={{
-                    width: "100%", padding: "14px 16px", borderRadius: 12,
-                    background: "rgba(6, 14, 36, 0.6)", border: "1px solid rgba(30, 86, 208, 0.2)",
-                    color: form[field.key] ? "#fff" : "rgba(255,255,255,0.3)",
-                    fontSize: 15, outline: "none", appearance: "none",
+                    ...inputStyle,
+                    color: form[field.key] ? "#191c1d" : "#9ca3af",
+                    appearance: "none",
                   }}
                 >
                   <option value="">Chọn mục tiêu...</option>
                   {field.options.map((opt, i) => (
-                    <option key={i} value={opt} style={{ background: "#0c1a3d" }}>{opt}</option>
+                    <option key={i} value={opt}>{opt}</option>
                   ))}
                 </select>
               ) : (
@@ -86,12 +105,7 @@ export default function RegisterScreen({ course, segment, onBack, onSubmit }) {
                   value={form[field.key]}
                   onChange={e => setForm({ ...form, [field.key]: e.target.value })}
                   placeholder={field.placeholder}
-                  style={{
-                    width: "100%", padding: "14px 16px", borderRadius: 12,
-                    background: "rgba(6, 14, 36, 0.6)", border: "1px solid rgba(30, 86, 208, 0.2)",
-                    color: "#fff", fontSize: 15, outline: "none",
-                    boxSizing: "border-box",
-                  }}
+                  style={inputStyle}
                 />
               )}
             </div>
@@ -103,7 +117,7 @@ export default function RegisterScreen({ course, segment, onBack, onSubmit }) {
             Xác nhận đăng ký ✅
           </Btn>
           <div style={{
-            marginTop: 12, fontSize: 11, color: "rgba(255,255,255,0.25)",
+            marginTop: 12, fontSize: 11, color: "#9ca3af",
             textAlign: "center", lineHeight: 1.5,
           }}>
             Thông tin được bảo mật · Chỉ dùng để gửi thông tin lớp học

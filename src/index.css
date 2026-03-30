@@ -1,53 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-/* === Galaxy Education Design Tokens — schoolsummit palette === */
+/* === Galaxy Education Light Theme — Inspired by schoolsummit.daisugiaoduc.vn === */
 :root {
-  /* Primary Navy Blue (from schoolsummit.daisugiaoduc.vn) */
-  --galaxy-blue: #0a2562;
-  --action-blue: #1e56d0;
-  --accent-cyan: #5dade2;
-  --action-blue-dark: #0c2d78;
-  --navy-deep: #060e24;
-  --navy-mid: #0c1a3d;
-  --navy-surface: #0f2240;
-  --navy-card: #122450;
-  --navy-light: #1a3570;
-  --navy-highlight: #2a4a8a;
+  /* Primary Navy Blue */
+  --navy: #1a2a5e;
+  --navy-dark: #0d1b3e;
+  --navy-light: #25336d;
 
   /* Accent Orange (Galaxy Education) */
-  --galaxy-orange: #f37021;
-  --warm-orange: #ff8c42;
-  --orange-glow: rgba(243, 112, 33, 0.25);
+  --orange: #f37021;
+  --orange-light: #ff8c42;
+  --orange-glow: rgba(243, 112, 33, 0.12);
+  --orange-gradient: linear-gradient(135deg, #f37021, #ff8c42);
 
-  /* Success / Free */
-  --success-green: #00B894;
-  --green-glow: rgba(0, 184, 148, 0.15);
+  /* Surface & Backgrounds — Light */
+  --bg-base: #f8f9fa;
+  --bg-white: #ffffff;
+  --bg-card: #ffffff;
+  --bg-section: #f3f4f5;
+  --bg-hover: #edeeef;
 
-  /* Course Category */
-  --ai-purple: #6C5CE7;
-  --data-blue: #0984E3;
-  --vibe-green: #00B894;
-  --auto-orange: #E17055;
-  --creative-pink: #FD79A8;
-  --biz-cyan: #00CEC9;
-  --edu-yellow: #FDCB6E;
+  /* Text — Dark on Light */
+  --text-primary: #191c1d;
+  --text-heading: #1a2a5e;
+  --text-secondary: #45464f;
+  --text-muted: #757680;
+  --text-hint: #9ca3af;
+  --text-white: #ffffff;
 
-  /* Background — Deep Navy Palette */
-  --dark-base: #050c1f;
-  --dark-surface: #060e24;
-  --dark-card: #0c1a3d;
-  --deep-navy: #0a2562;
-  --card-fill: rgba(14, 30, 70, 0.6);
-  --card-border: rgba(30, 70, 150, 0.2);
-  --card-border-hover: rgba(30, 86, 208, 0.35);
+  /* Accent Colors */
+  --success: #10b981;
+  --info: #4d5c92;
+  --warning: #f59e0b;
+  --error: #ba1a1a;
 
-  /* Text */
-  --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.8);
-  --text-muted: rgba(255, 255, 255, 0.55);
-  --text-hint: rgba(255, 255, 255, 0.4);
-  --text-faint: rgba(255, 255, 255, 0.3);
-  --text-ultra-faint: rgba(255, 255, 255, 0.2);
+  /* Borders & Shadows */
+  --border-light: rgba(0, 0, 0, 0.06);
+  --border-card: rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 12px 32px rgba(25, 28, 29, 0.06);
+  --shadow-orange: 0 4px 24px rgba(243, 112, 33, 0.2);
 
   /* Spacing */
   --space-xs: 4px;
@@ -60,17 +53,18 @@
   --space-3xl: 40px;
   --space-4xl: 48px;
 
-  /* Radius */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-base: 12px;
-  --radius-lg: 14px;
-  --radius-xl: 16px;
-  --radius-2xl: 20px;
+  /* Radius — Very rounded */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-base: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-pill: 50px;
   --radius-full: 50%;
 
   /* Font */
-  --font-family: 'Be Vietnam Pro', 'Segoe UI', sans-serif;
+  --font-family: 'Inter', 'Segoe UI', sans-serif;
 }
 
 /* === Global Reset === */
@@ -83,10 +77,11 @@
 html, body, #root {
   width: 100%;
   min-height: 100vh;
-  background: var(--dark-base);
+  background: var(--bg-base);
   font-family: var(--font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--text-primary);
 }
 
 /* === Animations === */
@@ -115,16 +110,21 @@ html, body, #root {
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
 /* === Form Styles === */
 input::placeholder,
 select {
-  color: var(--text-faint);
+  color: var(--text-hint);
 }
 
 input:focus,
 select:focus {
-  border-color: var(--action-blue) !important;
-  box-shadow: 0 0 0 3px rgba(30, 86, 208, 0.2);
+  border-color: var(--orange) !important;
+  box-shadow: 0 0 0 3px rgba(243, 112, 33, 0.15);
   outline: none;
 }
 

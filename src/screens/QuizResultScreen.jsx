@@ -7,14 +7,14 @@ import { COURSES } from "../data/courses";
 function MiniCourseCard({ course }) {
   return (
     <div style={{
-      padding: 20, borderRadius: 16, marginBottom: 12,
-      background: "rgba(14, 30, 70, 0.5)",
-      border: "1px solid rgba(30, 86, 208, 0.15)",
+      padding: 20, borderRadius: 20, marginBottom: 12,
+      background: "#ffffff",
+      boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
     }}>
       <div style={{ display: "flex", alignItems: "flex-start", gap: 14 }}>
         <div style={{
           width: 48, height: 48, borderRadius: 14,
-          background: course.color + "22",
+          background: course.color + "15",
           display: "flex", alignItems: "center", justifyContent: "center",
           fontSize: 24, flexShrink: 0,
         }}>
@@ -22,13 +22,13 @@ function MiniCourseCard({ course }) {
         </div>
         <div style={{ flex: 1 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
-            <span style={{ fontSize: 15, fontWeight: 700, color: "#fff" }}>{course.title}</span>
+            <span style={{ fontSize: 15, fontWeight: 700, color: "#1a2a5e" }}>{course.title}</span>
             {course.badge && <Badge text={course.badge} color={course.color} />}
           </div>
-          <div style={{ fontSize: 12, color: "rgba(255,255,255,0.5)", marginBottom: 8 }}>
+          <div style={{ fontSize: 12, color: "#757680", marginBottom: 8 }}>
             {course.subtitle}
           </div>
-          <div style={{ display: "flex", gap: 12, fontSize: 11, color: "rgba(255,255,255,0.4)" }}>
+          <div style={{ display: "flex", gap: 12, fontSize: 11, color: "#9ca3af" }}>
             <span>📅 {course.duration}</span>
             <span>🆓 {course.price}</span>
           </div>
@@ -52,7 +52,7 @@ export default function QuizResultScreen({ segment, answers, onViewCourses }) {
   return (
     <div style={{
       minHeight: "100vh", padding: "0 20px 40px",
-      background: "linear-gradient(180deg, #060e24 0%, #0a2562 50%, #060e24 100%)",
+      background: "linear-gradient(180deg, #ffffff 0%, #f0f2f8 50%, #f8f9fa 100%)",
     }}>
       <StatusBar />
       <div style={{ paddingTop: 32, textAlign: "center", marginBottom: 32 }}>
@@ -60,12 +60,12 @@ export default function QuizResultScreen({ segment, answers, onViewCourses }) {
           fontSize: 48, marginBottom: 16,
           animation: "bounce 0.6s ease",
         }}>🎉</div>
-        <div style={{ fontSize: 22, fontWeight: 800, color: "#fff", marginBottom: 8 }}>
+        <div style={{ fontSize: 22, fontWeight: 800, color: "#1a2a5e", marginBottom: 8 }}>
           Đã tìm thấy lộ trình cho bạn!
         </div>
         <div style={{
-          display: "inline-block", padding: "8px 20px", borderRadius: 20,
-          background: "rgba(30, 86, 208, 0.15)", color: "#5dade2",
+          display: "inline-block", padding: "8px 20px", borderRadius: 50,
+          background: "#e8ecf4", color: "#4d5c92",
           fontSize: 13, fontWeight: 600, marginBottom: 8,
         }}>
           {profileText}
@@ -73,7 +73,7 @@ export default function QuizResultScreen({ segment, answers, onViewCourses }) {
       </div>
 
       <div style={{ marginBottom: 24 }}>
-        <div style={{ fontSize: 14, fontWeight: 600, color: "rgba(255,255,255,0.4)", marginBottom: 16, letterSpacing: 1 }}>
+        <div style={{ fontSize: 14, fontWeight: 600, color: "#757680", marginBottom: 16, letterSpacing: 1 }}>
           GỢI Ý CHO BẠN
         </div>
         {recommended.map((course) => (
