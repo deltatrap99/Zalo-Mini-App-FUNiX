@@ -10,6 +10,7 @@ export const SCREENS = {
   REGISTER: "register",
   SUCCESS: "success",
   AMBASSADOR: "ambassador",
+  AMS_AUTH: "ams_auth",
   DASHBOARD: "dashboard",
 };
 

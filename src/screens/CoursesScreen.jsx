@@ -33,7 +33,7 @@ function CategoryTabs({ active, onSelect }) {
   );
 }
 
-function CourseCard({ course, onClick, matchCount }) {
+function CourseCard({ course, onClick, matchCount, isAmbassador }) {
   const isGoodMatch = matchCount >= 2;
   return (
     <div
@@ -102,12 +102,60 @@ function CourseCard({ course, onClick, matchCount }) {
             </span>
           </div>
         </div>
+        
+        {isAmbassador && (
+          <div style={{
+            marginTop: 16, paddingTop: 16, borderTop: "1px dashed #e1e3e4",
+          }}>
+            <div style={{ fontSize: 13, fontWeight: 600, color: "#1a2a5e", marginBottom: 8 }}>
+              Link giới thiệu của bạn
+            </div>
+            <div style={{ 
+              fontSize: 12, color: "#4d5c92", background: "#f8f9fa", 
+              padding: "10px 14px", borderRadius: 8, marginBottom: 12,
+              wordBreak: "break-all", border: "1px solid #e1e3e4"
+            }}>
+              https://funix.edu.vn/c/{course.id}?ref=1699
+            </div>
+            <div style={{ display: "flex", gap: 8 }}>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  alert("Đã copy link giới thiệu!");
+                }}
+                style={{
+                  flex: 1, background: "#eef2ff", color: "#1a2a5e",
+                  border: "none", padding: "10px", borderRadius: 10,
+                  fontSize: 13, fontWeight: 700, cursor: "pointer",
+                  display: "flex", alignItems: "center", justifyContent: "center", gap: 6
+                }}
+              >
+                📋 Copy link giới thiệu
+              </button>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  const shareUrl = `https://zalo.me/share?url=${encodeURIComponent(`https://funix.edu.vn/c/${course.id}?ref=1699`)}`;
+                  window.open(shareUrl, "_blank");
+                }}
+                style={{
+                  flex: 1, background: "linear-gradient(135deg, #0068ff, #0099ff)", color: "#fff",
+                  border: "none", padding: "10px", borderRadius: 10,
+                  fontSize: 13, fontWeight: 700, cursor: "pointer",
+                  display: "flex", alignItems: "center", justifyContent: "center", gap: 6
+                }}
+              >
+                💬 Chia sẻ qua Zalo
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
-export default function CoursesScreen({ segment, answers, onSelectCourse, onBack }) {
+export default function CoursesScreen({ segment, answers, onSelectCourse, onBack, isAmbassador }) {
   const [activeCategory, setActiveCategory] = useState("all");
 
   const filteredCourses = activeCategory === "all"
@@ -157,6 +205,7 @@ export default function CoursesScreen({ segment, answers, onSelectCourse, onBack
                 key={course.id}
                 course={course}
                 matchCount={matchCount}
+                isAmbassador={isAmbassador}
                 onClick={() => onSelectCourse(course)}
               />
             );

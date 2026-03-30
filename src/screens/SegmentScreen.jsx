@@ -33,7 +33,7 @@ function SegmentCard({ icon, title, desc, hook, color, onClick }) {
   );
 }
 
-export default function SegmentScreen({ onSelect, zaloUser }) {
+export default function SegmentScreen({ onSelect, zaloUser, onAmbassadorLogin }) {
   return (
     <div style={{
       minHeight: "100vh", padding: "0 20px 40px",
@@ -89,6 +89,45 @@ export default function SegmentScreen({ onSelect, zaloUser }) {
           color="#00B894"
           onClick={() => onSelect(SEGMENTS.WORKER)}
         />
+      </div>
+
+      <div style={{ marginTop: 32 }}>
+        <div style={{
+          padding: 20, borderRadius: 20,
+          background: "#ffffff",
+          boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
+        }}>
+          <div style={{ display: "flex", gap: 14, alignItems: "center", marginBottom: 12 }}>
+            <div style={{
+              width: 44, height: 44, borderRadius: 14,
+              background: "linear-gradient(135deg, #f37021, #ff8c42)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              fontSize: 22, color: "#fff", flexShrink: 0,
+            }}>🌟</div>
+            <div>
+              <div style={{ fontSize: 16, fontWeight: 700, color: "#1a2a5e", marginBottom: 4 }}>
+                Bạn là Đại sứ Giáo dục?
+              </div>
+              <div style={{ fontSize: 13, color: "#757680", lineHeight: 1.5 }}>
+                Đăng nhập để xem các tính năng dành riêng cho Đại sứ Giáo dục
+              </div>
+            </div>
+          </div>
+          
+          <button
+            onClick={onAmbassadorLogin}
+            style={{
+              width: "100%", padding: "14px", borderRadius: 14,
+              background: "#fff7ed", color: "#f37021",
+              border: "1px solid #ffedd5",
+              fontSize: 14, fontWeight: 700,
+              cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+              transition: "all 0.2s",
+            }}
+          >
+            📋 Truy cập trang Quản lý cho Đại sứ ngay tại đây
+          </button>
+        </div>
       </div>
     </div>
   );

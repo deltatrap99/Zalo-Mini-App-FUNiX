@@ -3,7 +3,7 @@ import StatusBar from "../components/StatusBar";
 import ZaloHeader from "../components/ZaloHeader";
 import Btn from "../components/Btn";
 
-export default function DashboardScreen({ form, onBack, onReset }) {
+export default function DashboardScreen({ form, onBack, onReset, onViewCourses }) {
   const userName = form?.name || "Đại sứ";
   const [copied, setCopied] = useState(false);
 
@@ -101,6 +101,41 @@ export default function DashboardScreen({ form, onBack, onReset }) {
               🆔 Mã Đại sứ: <strong style={{ color: "#1a2a5e" }}>1699</strong>
             </span>
           </div>
+        </div>
+
+        {/* View Courses Banner */}
+        <div
+          onClick={onViewCourses}
+          style={{
+            marginBottom: 28, padding: "18px 20px", borderRadius: 24,
+            background: "linear-gradient(135deg, #f37021 0%, #ff8c42 100%)",
+            color: "#fff", cursor: "pointer",
+            boxShadow: "0 8px 32px rgba(243, 112, 33, 0.25)",
+            display: "flex", gap: 16, alignItems: "center",
+            position: "relative", overflow: "hidden",
+            transition: "transform 0.2s",
+          }}
+        >
+          <div style={{
+            position: "absolute", top: -20, right: -10,
+            width: 120, height: 120, borderRadius: "50%",
+            background: "radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%)",
+            pointerEvents: "none",
+          }} />
+          <div style={{
+            width: 48, height: 48, borderRadius: 16, background: "rgba(255,255,255,0.2)",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            fontSize: 24, flexShrink: 0, position: "relative", zIndex: 1,
+          }}>📚</div>
+          <div style={{ flex: 1, position: "relative", zIndex: 1 }}>
+            <div style={{ fontSize: 16, fontWeight: 800, marginBottom: 4, letterSpacing: "-0.5px" }}>
+              Danh mục lớp học cộng đồng miễn phí
+            </div>
+            <div style={{ fontSize: 13, opacity: 0.9, lineHeight: 1.4 }}>
+              Lấy link giới thiệu Đại sứ ngay
+            </div>
+          </div>
+          <div style={{ fontSize: 20, opacity: 0.9, position: "relative", zIndex: 1, fontWeight: 800 }}>→</div>
         </div>
 
         {/* Stats */}
@@ -325,7 +360,7 @@ export default function DashboardScreen({ form, onBack, onReset }) {
         </div>
 
         <div style={{ height: 24 }} />
-        <Btn onClick={onReset} variant="ghost">← Quay lại trang chủ</Btn>
+        <Btn onClick={onReset} variant="ghost">← Thoát tài khoản AMS</Btn>
       </div>
     </div>
   );

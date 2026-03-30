@@ -13,6 +13,7 @@ import CourseDetailScreen from "./screens/CourseDetailScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import SuccessScreen from "./screens/SuccessScreen";
 import AmbassadorScreen from "./screens/AmbassadorScreen";
+import AmsAuthScreen from "./screens/AmsAuthScreen";
 import DashboardScreen from "./screens/DashboardScreen";
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [formData, setFormData] = useState({});
   const [zaloUser, setZaloUser] = useState(null);
+  const [isAmbassador, setIsAmbassador] = useState(false);
   const containerRef = useRef(null);
 
   const scrollTop = () => {
@@ -40,6 +42,7 @@ export default function App() {
     setSelectedCourse(null);
     setFormData({});
     setZaloUser(null);
+    setIsAmbassador(false);
   };
 
   return (
@@ -56,7 +59,11 @@ export default function App() {
           <ZaloAuthScreen onAuthorized={(user) => { setZaloUser(user); navigate(SCREENS.SEGMENT); }} />
         )}
         {screen === SCREENS.SEGMENT && (
-          <SegmentScreen zaloUser={zaloUser} onSelect={(s) => { setSegment(s); navigate(SCREENS.QUIZ_INTRO); }} />
+          <SegmentScreen 
+            zaloUser={zaloUser} 
+            onSelect={(s) => { setSegment(s); navigate(SCREENS.QUIZ_INTRO); }} 
+            onAmbassadorLogin={() => navigate(SCREENS.AMS_AUTH)}
+          />
         )}
         {screen === SCREENS.QUIZ_INTRO && (
           <QuizIntroScreen segment={segment} onStart={() => navigate(SCREENS.QUIZ)} />
@@ -75,9 +82,12 @@ export default function App() {
         )}
         {screen === SCREENS.COURSES && (
           <CoursesScreen
-            segment={segment} answers={answers}
+            segment={segment} answers={answers} isAmbassador={isAmbassador}
             onSelectCourse={(c) => { setSelectedCourse(c); navigate(SCREENS.COURSE_DETAIL); }}
-            onBack={() => navigate(SCREENS.QUIZ_RESULT)}
+            onBack={() => {
+              if (isAmbassador) navigate(SCREENS.DASHBOARD);
+              else navigate(SCREENS.QUIZ_RESULT);
+            }}
           />
         )}
         {screen === SCREENS.COURSE_DETAIL && selectedCourse && (
@@ -108,10 +118,14 @@ export default function App() {
             onDashboard={() => navigate(SCREENS.DASHBOARD)}
           />
         )}
+        {screen === SCREENS.AMS_AUTH && (
+          <AmsAuthScreen onComplete={() => navigate(SCREENS.DASHBOARD)} />
+        )}
         {screen === SCREENS.DASHBOARD && (
           <DashboardScreen
             form={formData}
             onBack={() => navigate(SCREENS.SUCCESS)}
+            onViewCourses={() => { setIsAmbassador(true); navigate(SCREENS.COURSES); }}
             onReset={handleReset}
           />
         )}
