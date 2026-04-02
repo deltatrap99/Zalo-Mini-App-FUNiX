@@ -106,10 +106,10 @@ export default function SegmentScreen({ onSelect, zaloUser, onAmbassadorLogin })
             }}>🌟</div>
             <div>
               <div style={{ fontSize: 16, fontWeight: 700, color: "#1a2a5e", marginBottom: 4 }}>
-                Bạn là Đại sứ Giáo dục?
+                Bạn đã là FUNiX Pathfinder?
               </div>
               <div style={{ fontSize: 13, color: "#757680", lineHeight: 1.5 }}>
-                Đăng nhập để xem các tính năng dành riêng cho Đại sứ Giáo dục
+                Đăng nhập để xem các tính năng dành riêng cho FUNiX Pathfinder
               </div>
             </div>
           </div>
@@ -125,7 +125,7 @@ export default function SegmentScreen({ onSelect, zaloUser, onAmbassadorLogin })
               transition: "all 0.2s",
             }}
           >
-            📋 Truy cập trang Quản lý cho Đại sứ ngay tại đây
+            📋 Truy cập trang Quản lý cho FUNiX Pathfinder ngay tại đây
           </button>
         </div>
       </div>

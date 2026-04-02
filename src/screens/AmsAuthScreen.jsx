@@ -28,7 +28,7 @@ export default function AmsAuthScreen({ onComplete }) {
           Đang kết nối hệ thống AMS
         </div>
         <div style={{ fontSize: 14, color: "#757680", lineHeight: 1.6, marginBottom: 32 }}>
-          Xác thực thông tin Đại sứ Giáo dục của bạn...
+          Xác thực thông tin FUNiX Pathfinder của bạn...
         </div>
         
         <div style={{

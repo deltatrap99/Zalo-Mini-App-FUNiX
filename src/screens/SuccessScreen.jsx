@@ -53,14 +53,14 @@ export default function SuccessScreen({ form, course, onAmbassador, onDashboard,
             🌟 Muốn kiếm thêm thu nhập?
           </div>
           <div style={{ fontSize: 13, color: "#45464f", lineHeight: 1.6, marginBottom: 16 }}>
-            Trở thành Đại sứ Giáo dục — giới thiệu bạn bè tham gia và nhận hoa hồng từ 27% trở lên + tích lũy Credit Sao
+            Trở thành FUNiX Pathfinder — giới thiệu bạn bè tham gia và nhận hoa hồng từ 27% trở lên + tích lũy Credit Sao
           </div>
           <Btn onClick={onAmbassador} variant="accent">
-            Tìm hiểu chương trình Đại sứ →
+            Tìm hiểu chương trình FUNiX Pathfinder →
           </Btn>
           <div style={{ height: 10 }} />
           <Btn onClick={onDashboard} variant="primary">
-            📋 Trang Quản lý thông tin dành cho Đại sứ
+            📋 Trang Quản lý thông tin dành cho FUNiX Pathfinder
           </Btn>
         </div>
 

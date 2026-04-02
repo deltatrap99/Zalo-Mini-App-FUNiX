@@ -1007,10 +1007,10 @@ function SuccessScreen({ form, course, onAmbassador, onReset }) {
             🌟 Muốn kiếm thêm thu nhập?
           </div>
           <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", lineHeight: 1.6, marginBottom: 16 }}>
-            Trở thành Đại sứ Giáo dục — giới thiệu bạn bè tham gia và nhận hoa hồng 20% + tích lũy Credit Sao
+            Trở thành FUNiX Pathfinder — giới thiệu bạn bè tham gia và nhận hoa hồng 20% + tích lũy Credit Sao
           </div>
           <Btn onClick={onAmbassador} variant="accent">
-            Tìm hiểu chương trình Đại sứ →
+            Tìm hiểu chương trình FUNiX Pathfinder →
           </Btn>
         </div>
 
@@ -1047,7 +1047,7 @@ function AmbassadorScreen({ onBack }) {
       background: "linear-gradient(180deg, #0a0a1a 0%, #0d1117 100%)",
     }}>
       <StatusBar />
-      <ZaloHeader title="Đại sứ Giáo dục" onBack={onBack} />
+      <ZaloHeader title="FUNiX Pathfinder" onBack={onBack} />
 
       <div style={{ padding: "32px 20px" }}>
         <div style={{
@@ -1055,7 +1055,7 @@ function AmbassadorScreen({ onBack }) {
         }}>
           <div style={{ fontSize: 48, marginBottom: 16 }}>🏆</div>
           <div style={{ fontSize: 22, fontWeight: 800, color: "#fff", marginBottom: 8 }}>
-            Chương trình Đại sứ Giáo dục
+            Chương trình FUNiX Pathfinder
           </div>
           <div style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.6 }}>
             Giới thiệu khóa học — Kiếm thu nhập — Xây dựng cộng đồng
@@ -1136,8 +1136,8 @@ function AmbassadorScreen({ onBack }) {
           ))}
         </div>
 
-        <Btn onClick={() => alert("Chuyển đến AMS đăng ký Đại sứ")}>
-          Đăng ký làm Đại sứ ngay 🌟
+        <Btn onClick={() => alert("Chuyển đến AMS đăng ký FUNiX Pathfinder")}>
+          Đăng ký làm FUNiX Pathfinder ngay 🌟
         </Btn>
         <div style={{ height: 12 }} />
         <Btn onClick={onBack} variant="ghost">← Quay lại</Btn>

@@ -4,7 +4,7 @@ import ZaloHeader from "../components/ZaloHeader";
 import Btn from "../components/Btn";
 
 export default function DashboardScreen({ form, onBack, onReset, onViewCourses }) {
-  const userName = form?.name || "Đại sứ";
+  const userName = form?.name || "FUNiX Pathfinder";
   const [copied, setCopied] = useState(false);
 
   const referralLink = "daisugiaoduc.vn/butphathunhap?utm_source=1699";
@@ -27,7 +27,7 @@ export default function DashboardScreen({ form, onBack, onReset, onViewCourses }
   };
 
   const handleShareZalo = () => {
-    const shareUrl = `https://zalo.me/share?url=${encodeURIComponent("https://" + referralLink)}&title=${encodeURIComponent("Chương trình Đại sứ Giáo dục Galaxy Education - Bứt phá thu nhập!")}`;
+    const shareUrl = `https://zalo.me/share?url=${encodeURIComponent("https://" + referralLink)}&title=${encodeURIComponent("Chương trình FUNiX Pathfinder Galaxy Education - Bứt phá thu nhập!")}`;
     window.open(shareUrl, "_blank");
   };
 
@@ -51,17 +51,17 @@ export default function DashboardScreen({ form, onBack, onReset, onViewCourses }
   ];
 
   const notifications = [
-    { title: "[GE] Thông báo Cơ chế Đại sứ Giáo dục 2026", time: "2 ngày trước", isNew: true },
+    { title: "[GE] Thông báo Cơ chế FUNiX Pathfinder 2026", time: "2 ngày trước", isNew: true },
     { title: "[GE] Thông báo hệ số sản phẩm Tháng 04", time: "5 ngày trước", isNew: true },
     { title: "[GE] Thông báo chương trình ưu đãi ICANCONNECT", time: "1 tuần trước", isNew: false },
     { title: "[GE] Cập nhật chính sách thưởng Q2/2026", time: "2 tuần trước", isNew: false },
   ];
 
   const resources = [
-    { icon: "📱", title: "Zalo OA Đại sứ Giáo dục CSKH", link: "zalo.me/297587145807728802", color: "#0068ff" },
+    { icon: "📱", title: "Zalo OA FUNiX Pathfinder CSKH", link: "zalo.me/297587145807728802", color: "#0068ff" },
     { icon: "🌐", title: "School Summit 2026", link: "schoolsummit.daisugiaoduc.vn", color: "#f37021" },
     { icon: "🎓", title: "FUNiX - Học Công nghệ", link: "funix.edu.vn", color: "#6C5CE7" },
-    { icon: "📊", title: "AMS - Quản lý Đại sứ", link: "ams.hocmai.com", color: "#10b981" },
+    { icon: "📊", title: "AMS - Quản lý FUNiX Pathfinder", link: "ams.hocmai.com", color: "#10b981" },
   ];
 
   return (
@@ -98,7 +98,7 @@ export default function DashboardScreen({ form, onBack, onReset, onViewCourses }
             background: "#fff7ed",
           }}>
             <span style={{ fontSize: 13, color: "#f37021", fontWeight: 600 }}>
-              🆔 Mã Đại sứ: <strong style={{ color: "#1a2a5e" }}>1699</strong>
+              🆔 Mã FUNiX Pathfinder: <strong style={{ color: "#1a2a5e" }}>1699</strong>
             </span>
           </div>
         </div>
@@ -132,7 +132,7 @@ export default function DashboardScreen({ form, onBack, onReset, onViewCourses }
               Danh mục lớp học cộng đồng miễn phí
             </div>
             <div style={{ fontSize: 13, opacity: 0.9, lineHeight: 1.4 }}>
-              Lấy link giới thiệu Đại sứ ngay
+              Lấy link giới thiệu FUNiX Pathfinder ngay
             </div>
           </div>
           <div style={{ fontSize: 20, opacity: 0.9, position: "relative", zIndex: 1, fontWeight: 800 }}>→</div>
@@ -200,7 +200,7 @@ export default function DashboardScreen({ form, onBack, onReset, onViewCourses }
           boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
         }}>
           <div style={{ fontSize: 14, fontWeight: 700, color: "#1a2a5e", marginBottom: 12 }}>
-            🔗 Link giới thiệu chương trình Đại sứ
+            🔗 Link giới thiệu chương trình FUNiX Pathfinder
           </div>
           <div style={{
             padding: "12px 14px", borderRadius: 14,

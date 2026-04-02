@@ -9,13 +9,13 @@ export default function AmbassadorScreen({ onBack, onDashboard }) {
       background: "linear-gradient(180deg, #ffffff 0%, #f0f2f8 40%, #f8f9fa 100%)",
     }}>
       <StatusBar />
-      <ZaloHeader title="Đại sứ Giáo dục" onBack={onBack} />
+      <ZaloHeader title="FUNiX Pathfinder" onBack={onBack} />
 
       <div style={{ padding: "32px 20px" }}>
         <div style={{ textAlign: "center", marginBottom: 32 }}>
           <div style={{ fontSize: 48, marginBottom: 16 }}>🏆</div>
           <div style={{ fontSize: 22, fontWeight: 800, color: "#1a2a5e", marginBottom: 8 }}>
-            Chương trình Đại sứ Giáo dục
+            Chương trình FUNiX Pathfinder
           </div>
           <div style={{ fontSize: 14, color: "#757680", lineHeight: 1.6 }}>
             Giới thiệu khóa học — Kiếm thu nhập — Xây dựng cộng đồng
@@ -73,11 +73,11 @@ export default function AmbassadorScreen({ onBack, onDashboard }) {
         </div>
 
         <Btn onClick={() => window.open("https://ams.hocmai.com/auth/register?utm_campaign=zalominiapp", "_blank")} variant="accent">
-          Đăng ký làm Đại sứ ngay 🌟
+          Đăng ký làm FUNiX Pathfinder ngay 🌟
         </Btn>
         <div style={{ height: 12 }} />
         <Btn onClick={onDashboard} variant="primary">
-          📋 Trang Quản lý thông tin dành cho Đại sứ
+          📋 Trang Quản lý thông tin dành cho FUNiX Pathfinder
         </Btn>
         <div style={{ height: 12 }} />
         <Btn onClick={onBack} variant="ghost">← Quay lại</Btn>
